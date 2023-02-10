@@ -75,7 +75,7 @@ class OpenAIEmbeddings(BaseModel, Embeddings):
         text = text.replace("\n", " ")
         return self.client.create(input=[text], engine=engine)["data"][0]["embedding"]
 
-    def embed_documents(self, texts: List[str], chunk_size=1000) -> List[List[float]]:
+    def embed_documents(self, texts: List[str], chunk_size: int=1000) -> List[List[float]]:
         """Call out to OpenAI's embedding endpoint for embedding search docs.
 
         Args:
